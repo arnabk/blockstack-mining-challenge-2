@@ -5,7 +5,7 @@ Always refer to the official documentation [here](https://docs.blockstack.org/st
 
 - `docker`
 - `docker-compose`
-- Once your bitcoind is all synced up, you will also have to import your address using command `docker exec blockstack-mining-challenge-2_bitcoind_1 /bitcoin-0.20.1/bin/bitcoin-cli bitcoin-cli -rpcport=18332 -rpcuser=rpc -rpcpassword=rpc importaddress <btcAddress from JSON>`
+- Once your bitcoind is all synced up, you will also have to import your address using command `docker exec <bitcoind-container-id> /bitcoin-0.20.1/bin/bitcoin-cli bitcoin-cli -rpcport=18332 -rpcuser=rpc -rpcpassword=rpc importaddress <btcAddress from JSON>`
 - If you are running this first time, you will have to restart your stack-node after your bitcoind is all synced up. Use the following command (should be run from the this project direction)
 `docker-compose restart blockstack`
 
