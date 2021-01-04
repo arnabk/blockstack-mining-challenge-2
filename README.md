@@ -18,3 +18,7 @@ Always refer to the official documentation [here](https://docs.blockstack.org/st
 - Run following command to build and deploy
 
     `docker-compose build && docker-compose up -d`
+
+# Other useful commands
+- If you want to check your bitcoind progress, run `docker logs <bitcoind-container-id>` and check `progress=`. If it shows `progress=1.0`, then your bitcoin node is all synced up
+- If you want to check your local stack tip, run `curl http://localhost:20443/v2/info | python -m json.tool`. This command assumes you have `curl` and puthon installed in your system
