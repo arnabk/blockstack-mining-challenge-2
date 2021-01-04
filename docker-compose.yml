@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  bitcoind:
+    build: ./bitcoind
+    restart: unless-stopped
+    volumes:
+      - ./bitcoind-data:/data
+    ports:
+      - 18333:18333
+      - 18332:18332
+  blockstack:
+    image: blockstack/stacks-blockchain:latest
+    restart: unless-stopped
+    volumes:
+      - ./blockstack/testnet-miner-conf.toml:/src/stacks-node/Config.toml
+    ports:
+      - 20443:20443
+      - 20444:20444
+    environment:
+      RUST_BACKTRACE: full
+      BLOCKSTACK_DEBUG: "1"
+    command:
+      - /bin/stacks-node
+      - start
+      - --config
+      - /src/stacks-node/Config.toml
